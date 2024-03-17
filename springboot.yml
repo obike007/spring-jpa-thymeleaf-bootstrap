@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name:  springboot
-          image: obike007/springboot:app-94f4617595
+          image: obike007/spring1:app-94f4617595
           ports:
             - containerPort: 80 
           imagePullPolicy: Always

@@ -27,7 +27,7 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Push Docker Image to Registry
-        run: docker push obike007/springboot:app-${{ github.sha }}
+        run: docker push obike007/spring1:app-${{ github.sha }}
 
   deploy_to_dev:
     runs-on: self-hosted
@@ -45,7 +45,7 @@ jobs:
         run: |
           git clone https://${{ secrets.USERNAME_TOKEN}}:${{ secrets.PIPELINE_TOKEN }}@github.com/obike007/spring1.git
           cd spring1 
-          sed -i "s/springboot:app-.*/springboot:app-${{ github.sha }}/g" deployment.yaml
+          sed -i "s/spring1:app-.*/spring1:app-${{ github.sha }}/g" deployment.yaml
           cat deployment.yaml
           git add deployment.yaml
           git commit -m "Update Vue.js test app Dev env k8s manifest file"

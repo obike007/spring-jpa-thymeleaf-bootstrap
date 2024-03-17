@@ -16,7 +16,7 @@ jobs:
         run: |
           echo "Generated image tag is ${{ github.sha }}" && ls
           docker build -t obike007/springboot:app-${{ github.sha }} -f .
-          echo "Docker build completed"
+          #echo "Docker build completed"
 
   push_image_to_registry:
     runs-on: self-hosted

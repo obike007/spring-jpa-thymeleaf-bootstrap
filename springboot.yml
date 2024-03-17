@@ -1,31 +1,29 @@
-apiVersion: apps/v1
+echo 'apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  springboot
+  name: springboot
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app:  springboot
+      app: springboot
   template:
     metadata:
       labels:
-        app:  springboot
+        app: springboot
     spec:
       containers:
-        - name:  springboot
+        - name: springboot
           image: obike007/spring1:app-94f4617595
           ports:
             - containerPort: 80 
           imagePullPolicy: Always
-      #imagePullSecrets: 
-      #  - name: docker-cred 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name:  springboot
+  name: springboot
   namespace: default
 spec:
   selector:
@@ -34,4 +32,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: NodePort
+  type: NodePort' > deployment.yaml

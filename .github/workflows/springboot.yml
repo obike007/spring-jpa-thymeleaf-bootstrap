@@ -15,7 +15,7 @@ jobs:
       - name: Build Docker Image
         run: |
           echo "Generated image tag is ${{ github.sha }}" && ls
-          docker build -t obike007/spring1:app-${{ github.sha }} -f /spring-jpa-thymeleaf-bootstrap/Dockerfile .
+          docker build -t obike007/spring1:app-${{ github.sha }} -f ./Dockerfile .
           #docker build -t obike007/vue:webapp-${{ github.sha }} -f ./vue-test-app/Dockerfile ./vue-test-app
           echo "Docker build completed"
 
